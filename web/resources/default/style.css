@@ -1,0 +1,295 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+}
+
+a {
+    color: rgb(51, 102, 153);
+    text-decoration: none;
+    cursor: alias;
+}
+
+a:hover {
+    color: rgb(51, 102, 215);
+    text-decoration: none;
+}
+
+#background::after {
+    content: "";
+    position: absolute;
+    opacity: 0.4;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background: url("/resources/images/background.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+#header {
+    position: absolute;
+    top: 0;
+    height: auto;
+    min-height: 10%;
+    max-height: 25%;
+    left: 0;
+    right: 0;
+    background-color: rgba(25, 25, 25, 0.7);
+    text-align: center;
+    z-index: 10;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#header:hover:not(:empty) {
+    overflow: auto;
+    white-space: normal;
+    max-height: none;
+    text-overflow: clip;
+    background-color: rgba(25, 25, 25, 1);
+}
+
+#question-span {
+    font-size: 8vh;
+    color: rgba(255, 255, 255, 1);
+}
+
+#footer {
+    position: absolute;
+    top: 90%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(25, 25, 25, 0.7);
+    text-align: right;
+}
+
+#footer :not(input) {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+#footer form {
+    font-size: 4vh;
+}
+
+#content, #question-form {
+    position: absolute;
+    padding: 10px;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    align-content: center;
+}
+
+#question-form input:hover {
+    opacity: 0.6;
+}
+
+.answer-button {
+    margin: .2vw;
+    cursor: pointer;
+    background-color: rgba(25, 25, 25, 0.7);
+    color: white;
+    font-weight: bold;
+    border: 2px white solid;
+}
+
+.interface-button {
+    font-size: 1.5vw;
+}
+
+.interface-button:hover {
+    border: 3px white solid;
+}
+
+.difficulty-Easy {
+    font-size: 4vw;
+    max-height: 5vw;
+}
+
+.difficulty-Normal {
+    font-size: 3vw;
+    max-height: 4vw;
+}
+
+.difficulty-Hard {
+    font-size: 2vw;
+    max-height: 3vw;
+}
+
+.answer-button::before {
+    content: "r/";
+}
+
+.score {
+    font-size: 25vh;
+}
+
+.answer-container {
+    position: absolute;
+    bottom: 2%;
+    height: auto;
+}
+
+.user-answer-container {
+    left: -11%;
+    text-align: left;
+}
+
+.ai-answer-container {
+    right: -11%;
+    text-align: right;
+}
+
+.correct-answer {
+    color: limegreen;
+}
+
+.wrong-answer {
+    color: red;
+}
+
+.ai-prediction-description {
+    align-self: center;
+    font-size: 8vh;
+    text-align: center;
+}
+
+.ai-prediction-span {
+    align-self: center;
+    font-size: 20vh;
+    font-weight: bold;
+}
+
+.player-description {
+    font-size: 1.5vw;
+}
+
+.player-answer {
+    font-size: 3.5vw;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.user-stats-container {
+    position: absolute;
+    top: 10%;
+    left: -2%;
+    text-align: left;
+}
+
+.user-stats-container div, .ai-stats-container div {
+    text-align: center;
+    margin-right: 1vw;
+    margin-top: 5vh;
+}
+
+.ai-stats-container {
+    position: absolute;
+    top: 10%;
+    right: -2%;
+    text-align: right;
+}
+
+.medium-sized-font {
+    font-size: 2vw;
+}
+
+.color-green {
+    color: limegreen;
+}
+
+.color-yellow {
+    color: yellow;
+}
+
+.color-orange {
+    color: orange;
+}
+
+.color-red {
+    color: red;
+}
+
+.color-blue {
+    color: rgb(51, 102, 215);
+}
+
+.index-left-container {
+    position: absolute;
+    align-self: center;
+    left: -5%;
+    right: 55%;
+    background-color: rgba(25, 25, 25, 0.7);
+    font-size: 1vw;
+    padding: 5vh;
+}
+
+.index-left-container > .index-right-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 130%;
+    right: -120%;
+    background-color: rgba(25, 25, 25, 0.7);
+    padding: 5vh;
+}
+
+.index-right-container input, .register-container input {
+    font-size: 1.5vw;
+    padding: 1vh;
+    margin-bottom: 2vh;
+}
+
+.full-length {
+    width: 100%;
+}
+
+.half-length {
+    width: 45%;
+    cursor: pointer;
+}
+
+.index-right-container input[type=button], .register-container input[type=button] {
+    float: right;
+}
+
+.big-font {
+    font-size: 3vw;
+    margin-top: 0;
+    margin-bottom: 5vh;
+}
+
+.medium-font {
+    font-size: 2.2vw;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.small-font {
+    font-size: 1.5vw;
+}
+
+.register-container {
+    align-self: center;
+    text-align: center;
+    width: 50%;
+    padding: 10vh;
+    background-color: rgba(25, 25, 25, 0.7);
+}
+
+.register-container h1 {
+    text-align: center;
+}

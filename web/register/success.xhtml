@@ -1,0 +1,15 @@
+<ui:composition template="/templates/base.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="title">Login</ui:define>
+    <ui:define name="content">
+        <span class="ai-prediction-description">
+            <span>User Account '#{registerBean.name}' successfully created!</span><br/>
+            <h:button outcome="finishRegister" value="Continue" styleClass="answer-button interface-button"/>
+        </span>
+    </ui:define>
+</ui:composition>
+

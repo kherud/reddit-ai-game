@@ -1,0 +1,38 @@
+<ui:composition template="/templates/base.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+    <ui:define name="title">Login</ui:define>
+    <ui:define name="header">
+        <span id="question-span">DJK - Reddit Game - Inf15b</span>
+    </ui:define>
+    <ui:define name="content">
+        <div class="index-left-container">
+            <p class="big-font font-bold">Welcome to our Game!</p>
+            <p>The rules are quite simple.</p>
+            <p>First you will receive a title of a recent submission from a random subreddit.</p>
+            <p>You will then have to decide which subreddit it comes from.</p>
+            <p>Next, our Artificial Intelligence takes a guess.</p>
+            <p class="medium-font">Are you better than our AI?</p>
+            <p>Whoever answers right receives a point.</p>
+            <p>Ultimately, you can compare your stats to our AI.</p>
+
+            <div class="index-right-container">
+                <p class="big-font font-bold">Login</p>
+                <h:form id="loginForm">
+                    <p:growl id="msg" showDetail="true" life="3000"/>
+                    <h:inputText class="full-length" id="username" value="#{loginBean.username}" pt:placeholder="Username"/><br/>
+                    <h:inputSecret class="full-length" id="password" value="#{loginBean.password}" feedback="false"
+                                   pt:placeholder="Password"/><br/>
+                    <h:commandButton class="half-length" action="#{loginBean.login}" value="Login" ajax="false"/>
+                    <h:button class="half-length" outcome="register" value="Register"/>
+                </h:form>
+            </div>
+        </div>
+    </ui:define>
+    <ui:define name="footer">
+        <span class="medium-sized-font">#{msgs.creators} @ #{msgs.origin}</span>
+    </ui:define>
+</ui:composition>

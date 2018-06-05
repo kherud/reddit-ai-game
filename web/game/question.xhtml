@@ -1,0 +1,47 @@
+<ui:composition template="/templates/base.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="title">DJK - Reddit Game - Inf15b</ui:define>
+    <ui:define name="header">
+        <c:if test="#{not empty gameBean.question}">
+            <h1>
+                <span>Where does</span><br/>
+                <span id="question-span">"#{gameBean.question.question}"</span><br/>
+                <span>come from?</span>
+            </h1>
+        </c:if>
+    </ui:define>
+    <ui:define name="content">
+        <c:choose>
+            <c:when test="#{not empty gameBean.question}">
+                <h:form id="question-form">
+                    <ui:repeat value="#{gameBean.choices}" var="option">
+                        <h:commandButton value="#{option.name}" action="#{gameBean.selectAnswer()}"
+                                         styleClass="answer-button difficulty-#{gameBean.difficulty}">
+                            <f:param name="choice" value="#{option.name}"/>
+                        </h:commandButton>
+                    </ui:repeat>
+                </h:form>
+            </c:when>
+            <c:otherwise>
+                <span class="ai-prediction-description">Currently, there are no (unanswered) questions. Check back in later!</span>
+            </c:otherwise>
+        </c:choose>
+    </ui:define>
+    <ui:define name="footer">
+        <c:if test="#{not empty gameBean.question}">
+            <h:form>
+                <h:selectOneRadio value="#{gameBean.difficulty}">
+                    <f:selectItem itemValue="Easy" itemLabel="Easy"/>
+                    <f:selectItem itemValue="Normal" itemLabel="Normal"/>
+                    <f:selectItem itemValue="Hard" itemLabel="Hard"/>
+                    <f:ajax event="click" render="question-form"/>
+                </h:selectOneRadio>
+            </h:form>
+        </c:if>
+        <h:button value="Statistics" outcome="gotoStats" styleClass="footer-button answer-button"/>
+        <h:button value="Logout" outcome="logout" styleClass="footer-button answer-button"/>
+    </ui:define>
+</ui:composition>

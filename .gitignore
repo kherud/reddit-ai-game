@@ -1,0 +1,7 @@
+.idea
+out
+target
+.directory
+*.log
+*.iml
+*.txt

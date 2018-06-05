@@ -1,0 +1,27 @@
+<ui:composition template="/templates/base.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+>
+    <ui:define name="title">Registration</ui:define>
+    <ui:define name="header">
+        <span id="question-span">Create an Account</span>
+    </ui:define>
+    <ui:define name="content">
+        <div class="register-container">
+            <h1 class="big-font">Please enter your credentials</h1>
+            <h:form id="registerForm">
+                <p:growl id="growl" sticky="true" showDetail="true" life="5000"/>
+                <h:inputText class="full-length" id="username-input" value="#{registerBean.name}" required="true" maxlength="45" pt:placeholder="Username"/>
+                <h:inputSecret class="full-length" id="password-input" value="#{registerBean.password}" required="true" pt:placeholder="Password"/>
+                <h:inputSecret class="full-length" id="confirmation-password-input" value="#{registerBean.password2}" required="true" pt:placeholder="Confirm Password"/>
+                <h:commandButton class="half-length" id="submitButton" value="Create" update="growl"
+                                 action="#{registerBean.register}"/>
+                <h:button class="half-length" outcome="cancel" value="Cancel"/>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
+

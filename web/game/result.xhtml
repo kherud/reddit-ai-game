@@ -1,0 +1,46 @@
+<ui:composition template="/templates/base.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html" xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <ui:define name="title">DJK - Reddit Game - Inf15b</ui:define>
+    <ui:define name="header">
+        <span id="question-span">Answer</span>
+    </ui:define>
+    <ui:define name="content">
+        <div class="answer-container user-answer-container">
+            <c:set var="answer_score" value="#{gameBean.getScore(gameBean.answer)}"/>
+            <c:choose>
+                <c:when test="#{answer_score eq '+1'}">
+                    <span class="score correct-answer">#{answer_score}</span><br/>
+                </c:when>
+                <c:otherwise>
+                    <span class="score wrong-answer">#{answer_score}</span><br/>
+                </c:otherwise>
+            </c:choose>
+            <span class="player-description">You answered</span><br/>
+            <span class="player-answer font-bold">#{gameBean.answer}</span>
+        </div>
+        <div class="answer-container ai-answer-container">
+            <c:set var="prediction_score" value="#{gameBean.getScore(gameBean.prediction)}"/>
+            <c:choose>
+                <c:when test="#{prediction_score eq '+1'}">
+                    <span class="score correct-answer">#{prediction_score}</span><br/>
+                </c:when>
+                <c:otherwise>
+                    <span class="score wrong-answer">#{prediction_score}</span><br/>
+                </c:otherwise>
+            </c:choose>
+            <span class="player-description">AI answered</span><br/>
+            <span class="player-answer font-bold">#{gameBean.prediction}</span>
+        </div>
+        <span class="ai-prediction-description">
+            <span>The Submission actually came from</span><br/>
+            <span class="ai-prediction-span">#{gameBean.question.answer}</span><br/><br/>
+            <a target="_blank" href="http://www.reddit.com/r/#{gameBean.question.answer}/#{gameBean.question.id}">Link</a><br/>
+            <h:button value="Give me another Question!" outcome="#{gameBean.nextQuestion()}" styleClass="answer-button interface-button"/>
+        </span>
+    </ui:define>
+    <ui:define name="footer">
+
+    </ui:define>
+</ui:composition>

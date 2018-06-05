@@ -1,0 +1,25 @@
+<ui:composition template="/templates/base.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:h="http://java.sun.com/jsf/html">
+    <ui:define name="title">DJK - Reddit Game - Inf15b</ui:define>
+    <ui:define name="header">
+        <c:if test="#{not empty gameBean.question}">
+            <h1>
+                <span>Where does '</span>
+                <span id="question-span">#{gameBean.question.question}</span>
+                <span>' come from?</span>
+            </h1>
+        </c:if>
+    </ui:define>
+    <ui:define name="content">
+        <span class="ai-prediction-description">
+            <span>AI guessed</span><br/>
+            <span class="ai-prediction-span">#{gameBean.AIPrediction}</span><br/>
+            <h:button value="Continue" outcome="result" styleClass="answer-button interface-button"/>
+        </span>
+    </ui:define>
+    <ui:define name="footer">
+
+    </ui:define>
+</ui:composition>

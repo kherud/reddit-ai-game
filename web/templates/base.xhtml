@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title><ui:insert name="title">#{msgs['default.title']}</ui:insert></title>
+    <f:facet name="last">
+        <ui:insert name="style-sheets"/>
+        <h:outputStylesheet library="default" name="style.css"/>
+    </f:facet>
+</h:head>
+<h:body>
+    <div id="background"/>
+    <div id="header"><ui:insert name="header"/></div>
+    <div id="content"><ui:insert name="content">Main Content</ui:insert></div>
+    <div id="footer"><ui:insert name="footer"/></div>
+</h:body>
+</html>

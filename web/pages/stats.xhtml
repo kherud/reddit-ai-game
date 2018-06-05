@@ -1,0 +1,44 @@
+<ui:composition template="/templates/base.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <ui:define name="title">DJK - Reddit Game - Inf15b</ui:define>
+    <ui:define name="header">
+        <span id="question-span">Statistics</span>
+    </ui:define>
+    <ui:define name="content">
+        <div class="user-stats-container">
+            <span class="player-answer">Your correct Answers</span><br/>
+            <div>
+                <span class="font-bold ai-prediction-description color-green">#{statisticsBean.getPlayerRate("Easy")}</span><br/>
+                <span>out of</span>
+                <span class="medium-sized-font font-bold color-green"> #{statisticsBean.countPlayerGames("Easy")} Easy </span>
+                <span>Questions</span>
+            </div>
+            <div>
+                <span class="font-bold ai-prediction-description color-yellow">#{statisticsBean.getPlayerRate("Normal")}</span><br/>
+                <span>out of</span>
+                <span class="medium-sized-font font-bold color-yellow"> #{statisticsBean.countPlayerGames("Normal")} Normal </span>
+                <span>Questions</span>
+            </div>
+            <div>
+                <span class="font-bold ai-prediction-description color-orange">#{statisticsBean.getPlayerRate("Hard")}</span><br/>
+                <span>out of</span>
+                <span class="medium-sized-font font-bold color-orange"> #{statisticsBean.countPlayerGames("Hard")} Hard </span>
+                <span>Questions</span>
+            </div>
+        </div>
+        <div class="ai-stats-container">
+            <span class="player-answer">AI's correct Predictions</span><br/>
+            <div>
+                <span class="font-bold ai-prediction-description color-blue">#{statisticsBean.AIRate}</span><br/>
+                <span>out of</span>
+                <span class="medium-sized-font font-bold color-blue"> #{statisticsBean.countAIGames()} Total </span>
+                <span>Questions</span>
+            </div>
+        </div>
+    </ui:define>
+    <ui:define name="footer">
+        <h:button class="footer-button answer-button" outcome="game" value="Back to Game"/>
+    </ui:define>
+</ui:composition>
